@@ -18,10 +18,28 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>Hello world!</title>
+    <title>Event</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+        <a class="navbar-brand mb-0 h1" href="/" style = "padding-left: 50px">Home</a>
+        
+         <% if !@current_user %>
+            <form class="form-inline my-2 my-lg-0" style = "padding-right: 50px">
+                <a class="btn btn-secondary" href="/users/new">Sign Up</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-secondary" href="/logins/new">Login</a>
+            </form>
+        <% end %>
 
+        <% if @current_user %>
+                <ul class="navbar-nav ml-auto">
+                    <li class="navbar-text">
+                        Hello, <%= @current_user[:name] %>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/logout" style="color: blue; padding-right: 50px;">Logout</a>
+                    </li>
+                </ul>
+        <% end %>
+    </nav>
     <div class="container mt-5">
       <%= yield %>
     </div>

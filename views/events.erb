@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <h1>All Upcoming Career Networking Events</h1>
+</div>
+            
+<div class = "container mt-5">
+    <% for event in @events %>
+        <div class = "mt-5">
+            <p>
+                <a href="/events/<%= event[:id] %>"><%= event[:title] %></a>
+                <p><%= event[:date] %> from <%= event[:time] %> at <%= event[:location] %></p>
+            </p>
+        </div>
+    <% end %>
+</div>
+
+
+
+       

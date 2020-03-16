@@ -1,0 +1,32 @@
+
+<h1>RSVP for <%= @event[:title] %></h1>
+
+<p>
+    <h3>
+        <i class="far fa-calendar-alt"></i>
+        <%= @event[:date] %> from <%= @event[:time] %>
+    </h3>
+    <div class = "mt-2">
+        <h4>
+            <i class="fa fa-location-arrow" aria-hidden="true"></i>
+            <%= @event[:location] %>     
+        </h4>
+    </div>
+</p>
+
+<div class="mt-4">
+    <form action="/events/<%= @event[:id] %>/rsvps/create">
+        <div class="form-group">
+            <label>Are you attending?</label>
+            <select class="form-control" name="going">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Comments</label>
+            <textarea class="form-control" rows="3" name = "comments"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
